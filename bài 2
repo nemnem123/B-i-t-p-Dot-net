@@ -4,23 +4,23 @@ class Approximation
 {
     static void Main(string[] args)
     {
-        Console.Write("nhap gia tri epsilon : ");
+        Console.Write("Nhap gia tri epsilon: ");
         if (double.TryParse(Console.ReadLine(), out double epsilon) && epsilon > 0 && epsilon < 1)
         {
-            Console.WriteLine($"xap xi π: {ApproximatePi(epsilon):F6}");
-            Console.Write("nhap gia tri x cho sin(x): ");
+            Console.WriteLine($"Xap xi pi: {ApproximatePi(epsilon):F6}");
+            Console.Write("Nhap gia tri x cho sin(x): ");
             double x = double.Parse(Console.ReadLine());
-            Console.WriteLine($"xap xi sin({x}): {ApproximateSin(x, epsilon):F6}");
-            Console.Write("nhap gia tri x cho ln(1+x): ");
+            Console.WriteLine($"Xap xi sin({x}): {ApproximateSin(x, epsilon):F6}");
+            Console.Write("Nhap gia tri x cho ln(1+x): ");
             double xLn = double.Parse(Console.ReadLine());
-            Console.WriteLine($"xap xi ln(1+{xLn}): {ApproximateLn(xLn, epsilon):F6}");
-            Console.Write("nhap gia tri x cho cos(x): ");
+            Console.WriteLine($"Xap xi ln(1+{xLn}): {ApproximateLn(xLn, epsilon):F6}");
+            Console.Write("Nhap gia tri x cho cos(x): ");
             double xCos = double.Parse(Console.ReadLine());
-            Console.WriteLine($"xap xi cos({xCos}): {ApproximateCos(xCos, epsilon):F6}");
+            Console.WriteLine($"Xap xi cos({xCos}): {ApproximateCos(xCos, epsilon):F6}");
         }
         else
         {
-            Console.WriteLine("hay nhap so hop le (0 < epsilon < 1).");
+            Console.WriteLine("Hay nhap so hop le (0 < epsilon < 1).");
         }
     }
 
@@ -49,7 +49,7 @@ class Approximation
         {
             sum += term;
             n++;
-            term *= -x * x / ((2 * n - 2) * (2 * n - 1)); 
+            term *= -x * x / ((2 * n - 2) * (2 * n - 1));
         }
 
         return sum;
@@ -65,7 +65,7 @@ class Approximation
         {
             sum += term;
             n++;
-            term *= -x * (n - 1) / n; 
+            term *= -x * (n - 1) / n;
         }
 
         return sum;
@@ -81,9 +81,9 @@ class Approximation
         {
             sum += term;
             n++;
-            term *= -x * x / ((2 * n - 1) * (2 * n)); 
+            term *= -x * x / ((2 * n - 1) * (2 * n));
         }
 
-        return sum;
+        return (sum);
     }
 }
