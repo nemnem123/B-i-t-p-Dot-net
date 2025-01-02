@@ -2,7 +2,6 @@ using System;
 
 class Program
 {
-    // tính S1
     static double CalculateS1(int n)
     {
         double total = 0;
@@ -15,12 +14,11 @@ class Program
                 denominator += Math.Pow(j, 2);
             }
             total += sign * (1 / denominator);
-            sign *= -1; 
+            sign *= -1;
         }
         return total;
     }
 
-    // tính S2
     static double CalculateS2(int n)
     {
         double total = 1;
@@ -32,7 +30,6 @@ class Program
         return total;
     }
 
-    // Hàm tính S5
     static double CalculateS5(int n)
     {
         double total = 0;
@@ -40,7 +37,7 @@ class Program
         for (int i = 1; i <= n; i++)
         {
             total += sign * (1.0 / (2 * i));
-            sign *= -1; 
+            sign *= -1;
         }
         return total;
     }
@@ -54,10 +51,10 @@ class Program
             int denominator = 0;
             for (int j = 1; j <= i; j++)
             {
-                denominator += j; 
+                denominator += j;
             }
             total += sign * (1.0 / denominator);
-            sign *= -1; 
+            sign *= -1;
         }
         return total;
     }
@@ -71,6 +68,7 @@ class Program
         }
         return total;
     }
+
     static double Factorial(int n)
     {
         if (n == 0) return 1;
@@ -84,44 +82,18 @@ class Program
 
     static void Main(string[] args)
     {
-        while (true)
+        Console.Write("Nhap so nguyen duong n: ");
+        if (int.TryParse(Console.ReadLine(), out int n) && n > 0)
         {
-            Console.WriteLine("\nchon cong thuc de tinh:");
-            Console.WriteLine("1. S1");
-            Console.WriteLine("2. S2");
-            Console.WriteLine("5. S5");
-            Console.WriteLine("6. S6");
-            Console.WriteLine("7. S7");
-            Console.Write("nhap lua chon cua ban (1-7): ");
-            string choice = Console.ReadLine();
-
-            Console.Write("nhap so nguyen duong n: ");
-            if (int.TryParse(Console.ReadLine(), out int n) && n > 0)
-            {
-                switch (choice)
-                {
-                    case "1":
-                        Console.WriteLine($"S1 = {CalculateS1(n):F4}");
-                        break;
-                    case "2":
-                        Console.WriteLine($"S2 = {CalculateS2(n):F4}");
-                        break;
-                    case "5":
-                        Console.WriteLine($"S5 = {CalculateS5(n):F4}");
-                        break;
-                    case "6":
-                        Console.WriteLine($"S6 = {CalculateS6(n):F4}");
-                        break;
-                    case "7":
-                        Console.WriteLine($"S7 = {CalculateS7(n):F4}");
-                        break;
-                    
-                }
-            }
-            else
-            {
-                Console.WriteLine("so nguyen duong khong hop le thu lai:");
-            }
+            Console.WriteLine($"S1 = {CalculateS1(n):F4}");
+            Console.WriteLine($"S2 = {CalculateS2(n):F4}");
+            Console.WriteLine($"S5 = {CalculateS5(n):F4}");
+            Console.WriteLine($"S6 = {CalculateS6(n):F4}");
+            Console.WriteLine($"S7 = {CalculateS7(n):F4}");
+        }
+        else
+        {
+            Console.WriteLine("So nguyen duong khong hop le");
         }
     }
 }
